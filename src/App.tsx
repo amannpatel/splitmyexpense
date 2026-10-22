@@ -199,7 +199,7 @@ export default function App() {
           <footer className="mt-12 flex flex-col items-center gap-4 text-center text-xs text-muted">
             <p>Saved only in this browser. Nothing is uploaded, and friends won't see your changes.</p>
             <a
-              href="https://my-portfolio-1ct0c5aqn-amanpatels-projects-728f8482.vercel.app/"
+              href="https://amanpatell.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink shadow-soft ring-1 ring-line transition-transform duration-300 hover:-rotate-2 hover:scale-105 hover:ring-grape-200"
