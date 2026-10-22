@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  --font-display: ui-rounded, "SF Pro Rounded", "Nunito", "Varela Round", system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+
+  --color-cream: #fff8f0;
+  --color-ink: #1d1a2f;
+  --color-muted: #625e7c;
+  --color-line: #efe8f7;
+
+  --color-grape-50: #f7f2ff;
+  --color-grape-100: #ede4ff;
+  --color-grape-200: #dccbff;
+  --color-grape-400: #a57bff;
+  --color-grape-500: #7c3aed;
+  --color-grape-600: #6a2bd9;
+  --color-grape-700: #5520b0;
+
+  --color-coral-50: #fff4f1;
+  --color-coral-100: #ffe1da;
+  --color-coral-400: #ff8a78;
+  --color-coral-500: #ff6b57;
+  --color-coral-700: #b3341e;
+
+  --color-mint-50: #ecfdf6;
+  --color-mint-100: #cff7e8;
+  --color-mint-400: #4fe0b0;
+  --color-mint-500: #22c99a;
+  --color-mint-700: #0b7356;
+
+  --color-sky-100: #dcf2ff;
+  --color-sky-400: #5ccaff;
+  --color-sky-700: #075f8f;
+
+  --color-sunny-100: #fff3c4;
+  --color-sunny-300: #ffe066;
+  --color-sunny-400: #ffd43b;
+  --color-sunny-700: #7d5800;
+
+  --radius-card: 1.75rem;
+
+  --shadow-soft: 0 1px 2px rgb(29 26 47 / 0.04), 0 14px 36px -14px rgb(29 26 47 / 0.16);
+  --shadow-lift: 0 2px 4px rgb(29 26 47 / 0.05), 0 20px 44px -16px rgb(85 32 176 / 0.28);
+
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-cream font-sans text-ink antialiased;
+    background-image:
+      radial-gradient(40rem 24rem at 100% -10%, rgb(124 58 237 / 0.09), transparent 70%),
+      radial-gradient(32rem 20rem at -10% 10%, rgb(255 107 87 / 0.08), transparent 70%);
+    background-attachment: fixed;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-grape-500);
+    outline-offset: 2px;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@utility card {
+  border-radius: var(--radius-card);
+  background-color: white;
+  box-shadow: var(--shadow-soft);
+  outline: 1px solid var(--color-line);
+}
+
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  white-space: nowrap;
+  user-select: none;
+  touch-action: manipulation;
+  transition:
+    transform 160ms var(--ease-bounce),
+    box-shadow 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease;
+
+  &:active:not(:disabled) {
+    transform: translateY(2px) scale(0.98);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@utility btn-primary {
+  background-color: var(--color-grape-500);
+  color: white;
+  box-shadow:
+    0 4px 0 0 var(--color-grape-700),
+    0 12px 24px -10px rgb(124 58 237 / 0.7);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-grape-600);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 0 var(--color-grape-700);
+  }
+}
+
+@utility btn-soft {
+  background-color: var(--color-grape-50);
+  color: var(--color-grape-700);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-grape-100);
+  }
+}
+
+@utility btn-ghost {
+  color: var(--color-muted);
+
+  &:hover:not(:disabled) {
+    background-color: rgb(29 26 47 / 0.05);
+    color: var(--color-ink);
+  }
+}
+
+@utility icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  color: var(--color-muted);
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    transform 160ms var(--ease-bounce);
+
+  &:hover {
+    background-color: rgb(29 26 47 / 0.06);
+    color: var(--color-ink);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+@utility field {
+  width: 100%;
+  min-width: 0;
+  border-radius: 1rem;
+  border: 2px solid transparent;
+  background-color: var(--color-grape-50);
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: var(--color-ink);
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    box-shadow 150ms ease;
+
+  &::placeholder {
+    color: rgb(29 26 47 / 0.42);
+  }
+
+  &:hover {
+    border-color: var(--color-grape-200);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-grape-500);
+    background-color: white;
+    box-shadow: 0 0 0 4px rgb(124 58 237 / 0.15);
+  }
+
+  &[aria-invalid="true"] {
+    border-color: var(--color-coral-500);
+    background-color: var(--color-coral-50);
+  }
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
