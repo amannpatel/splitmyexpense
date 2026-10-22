@@ -196,8 +196,29 @@ export default function App() {
             </div>
           </div>
 
-          <footer className="mt-12 text-center text-xs text-muted">
-            Saved only in this browser. Nothing is uploaded, and friends won't see your changes.
+          <footer className="mt-12 flex flex-col items-center gap-4 text-center text-xs text-muted">
+            <p>Saved only in this browser. Nothing is uploaded, and friends won't see your changes.</p>
+            <a
+              href="https://my-portfolio-1ct0c5aqn-amanpatels-projects-728f8482.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink shadow-soft ring-1 ring-line transition-transform duration-300 hover:-rotate-2 hover:scale-105 hover:ring-grape-200"
+            >
+              <span aria-hidden>🧾</span>
+              Made with
+              <span aria-hidden className="inline-block motion-safe:animate-heartbeat">
+                ❤️
+              </span>
+              <span className="sr-only">love</span>
+              by
+              <span className="bg-linear-90 from-grape-500 to-coral-500 bg-clip-text font-display text-base font-black tracking-tight text-transparent">
+                Aman
+              </span>
+              <span aria-hidden className="inline-block transition-transform duration-500 group-hover:rotate-180">
+                ✨
+              </span>
+              <span className="sr-only">(opens Aman's portfolio in a new tab)</span>
+            </a>
           </footer>
         </main>
 
